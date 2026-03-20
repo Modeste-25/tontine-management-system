@@ -305,7 +305,6 @@ $is_editing = ($edit_user !== null);
                                             <select class="form-select" name="type_utilisateur">
                                                 <option value="membre" <?= ($edit_user['type_utilisateur'] ?? '') == 'membre' ? 'selected' : '' ?>>Membre</option>
                                                 <option value="representant" <?= ($edit_user['type_utilisateur'] ?? '') == 'representant' ? 'selected' : '' ?>>Représentant</option>
-                                                <option value="admin" <?= ($edit_user['type_utilisateur'] ?? '') == 'admin' ? 'selected' : '' ?>>Administrateur</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 mb-3">

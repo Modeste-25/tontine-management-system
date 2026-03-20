@@ -38,55 +38,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sécurité du compte</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sécurité du compte</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="dashboard-container">
-    <?php
-    if ($user['type_utilisateur'] === 'admin') include 'sidebar_admin.php';
-    elseif ($user['type_utilisateur'] === 'representant') include 'sidebar_representant.php';
-    else include 'sidebar_membres.php';
-    ?>
-    <div class="main-content">
-        <?php include 'topbar.php'; ?>
-        <div class="content-area">
-            <div class="section active">
-                <?php if ($message): ?><div class="alert alert-success"><?php echo $message; ?></div><?php endif; ?>
-                <?php if ($error): ?><div class="alert alert-error"><?php echo $error; ?></div><?php endif; ?>
+    <div class="dashboard-container">
+        <?php
+        if ($user['type_utilisateur'] === 'admin') include 'sidebar_admin.php';
+        elseif ($user['type_utilisateur'] === 'representant') include 'sidebar_representant.php';
+        else include 'sidebar_membres.php';
+        ?>
+        <div class="main-content">
+            <?php include 'topbar.php'; ?>
+            <div class="content-area">
+                <div class="section active">
+                    <?php if ($message): ?><div class="alert alert-success"><?php echo $message; ?></div><?php endif; ?>
+                    <?php if ($error): ?><div class="alert alert-error"><?php echo $error; ?></div><?php endif; ?>
 
-                <div class="card">
-                    <div class="card-header"><h2 class="card-title">Changer votre mot de passe</h2></div>
-                    <form method="POST">
-                        <div class="form-group">
-                            <label>Ancien mot de passe</label>
-                            <input type="password" name="ancien_mdp" required>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Changer votre mot de passe</h2>
                         </div>
-                        <div class="form-group">
-                            <label>Nouveau mot de passe</label>
-                            <input type="password" name="nouveau_mdp" required minlength="6">
-                        </div>
-                        <div class="form-group">
-                            <label>Confirmer le nouveau mot de passe</label>
-                            <input type="password" name="confirmation_mdp" required minlength="6">
-                        </div>
-                        <button type="submit" name="changer_mdp" class="btn btn-primary">Changer le mot de passe</button>
-                    </form>
-                </div>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label>Ancien mot de passe</label>
+                                <input type="password" name="ancien_mdp" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nouveau mot de passe</label>
+                                <input type="password" name="nouveau_mdp" required minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmer le nouveau mot de passe</label>
+                                <input type="password" name="confirmation_mdp" required minlength="6">
+                            </div>
+                            <button type="submit" name="changer_mdp" class="btn btn-primary">Changer le mot de passe</button>
+                        </form>
+                    </div>
 
-                <div class="card">
-                    <div class="card-header"><h2 class="card-title">Authentification à deux facteurs (2FA)</h2></div>
-                    <form method="POST">
-                        <p>Activez la double authentification pour renforcer la sécurité de votre compte.</p>
-                        <button type="submit" name="activer_2fa" class="btn btn-success">Activer 2FA</button>
-                    </form>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Authentification à deux facteurs (2FA)</h2>
+                        </div>
+                        <form method="POST">
+                            <p>Activez la double authentification pour renforcer la sécurité de votre compte.</p>
+                            <button type="submit" name="activer_2fa" class="btn btn-success">Activer 2FA</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

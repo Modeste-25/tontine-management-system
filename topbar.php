@@ -31,7 +31,7 @@ switch ($user['type_utilisateur']) {
 ?>
 <div class="top-bar">
     <div class="search-bar">
-        <input type="text" placeholder="Rechercher..." id="globalSearch">
+        <input type="text" placeholder="" id="globalSearch">
     </div>
 
     <div class="user-info">
