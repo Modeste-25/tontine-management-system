@@ -28,54 +28,54 @@ $tontine = $stmt->fetch();
         <ul>
             <li>
                 <a href="dashboard_representant.php" class="<?php echo $current_page == 'dashboard_representant.php' ? 'active' : ''; ?>">
-                    <i></i> Tableau de bord
+                    <i class="bi bi-speedometer2"></i> Tableau de bord
                 </a>
             </li>
             <li>
                 <a href="<?php echo $tontine ? 'membres_tontines.php?id='.$tontine['id'] : '#'; ?>" 
                    class="<?php echo $current_page == 'membres_tontines.php' ? 'active' : ''; ?>"
                    <?php echo !$tontine ? 'style="pointer-events:none; color: gray;"' : ''; ?>>
-                    <i></i> Membres Tontines
+                    <i class="bi bi-people"></i> Membres Tontines
                 </a>
             </li>
             <li>
                 <a href="cotisations.php" class="<?php echo $current_page == 'cotisations.php' ? 'active' : ''; ?>">
-                    <i></i> Cotisations
+                    <i class="bi bi-wallet"></i> Cotisations
                 </a>
             </li>
             <li>
                 <a href="prets.php" class="<?php echo $current_page == 'prets.php' ? 'active' : ''; ?>">
-                    <i></i> Prêts
+                    <i class="bi bi-bank"></i> Prêts
                 </a>
             </li>
             <li>
                 <a href="tours.php" class="<?php echo $current_page == 'tours.php' ? 'active' : ''; ?>">
-                    <i></i> Tours
+                    <i class="bi bi-calendar"></i> Tours
                 </a>
             </li>
             <li>
                 <a href="sanctions.php" class="<?php echo $current_page == 'sanctions.php' ? 'active' : ''; ?>">
-                    <i></i> Sanctions
+                    <i class="bi bi-exclamation-triangle"></i> Sanctions
                 </a>
             </li>
             <li>
                 <a href="rapports.php" class="<?php echo $current_page == 'rapports.php' ? 'active' : ''; ?>">
-                    <i></i> Rapports
+                    <i class="bi bi-bar-chart"></i> Rapports
                 </a>
             </li>
             <li>
                 <a href="notifications.php" class="<?php echo $current_page == 'notifications.php' ? 'active' : ''; ?>">
-                    <i></i> Notifications
+                    <i class="bi bi-bell"></i> Notifications
                 </a>
             </li>
             <li>
                 <a href="securite.php" class="<?php echo $current_page == 'securite.php' ? 'active' : ''; ?>">
-                    <i></i> Sécurité
+                    <i class="bi bi-shield"></i> Sécurité
                 </a>
             </li>
             <li style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
                 <a href="logout.php" style="color: #f8d7da;">
-                    <i></i> Déconnexion
+                    <i class="bi bi-box-arrow-right"></i> Déconnexion
                 </a>
             </li>
         </ul>
