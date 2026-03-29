@@ -453,10 +453,7 @@ $tours_passes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
-
-<!-- Script pour la confirmation de suppression -->
 <script>
-    // Les confirmations sont déjà dans les formulaires
 </script>
 </body>
 </html>

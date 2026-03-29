@@ -40,6 +40,13 @@ try {
     $mail->Port       = 587;
     $mail->SMTPDebug  = 0;
     $mail->CharSet    = 'UTF-8';
+    $mail->SMTPOptions = [
+    'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    ]
+];
 
     $mail->setFrom('tchouheukmodeste@gmail.com', 'Afriton');
     $mail->addAddress($membre['email'], $membre['prenom'] . ' ' . $membre['nom']);

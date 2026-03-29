@@ -34,8 +34,8 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'tchouheukmodeste@gmail.com';   // ← à remplacer
-    $mail->Password   = 'gycz lahd vmau vcjw';  // ← à remplacer
+    $mail->Username   = 'tchouheukmodeste@gmail.com'; 
+    $mail->Password   = 'gycz lahd vmau vcjw';  
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
     $mail->SMTPDebug  = 0;
@@ -45,7 +45,7 @@ try {
     $mail->addAddress($membre['email'], $membre['prenom'] . ' ' . $membre['nom']);
 
     $mail->isHTML(true);
-    $mail->Subject = "❌ Compte Afriton – Accès suspendu";
+    $mail->Subject = " Compte Afriton – Accès suspendu";
 
     $nom = htmlspecialchars($membre['prenom'] . ' ' . $membre['nom']);
 
@@ -85,10 +85,10 @@ try {
     $mail->AltBody = "Bonjour {$nom}, votre compte Afriton a été suspendu. Contactez l'administrateur pour plus d'informations.";
 
     $mail->send();
-    $_SESSION['flash'] = ['type' => 'danger', 'msg' => "❌ Membre suspendu. Un email de notification lui a été envoyé."];
+    $_SESSION['flash'] = ['type' => 'danger', 'msg' => " Membre suspendu. Un email de notification lui a été envoyé."];
 
 } catch (Exception $e) {
-    $_SESSION['flash'] = ['type' => 'danger', 'msg' => "❌ Membre suspendu (email non envoyé : " . $mail->ErrorInfo . ")"];
+    $_SESSION['flash'] = ['type' => 'danger', 'msg' => " Membre suspendu (email non envoyé : " . $mail->ErrorInfo . ")"];
 }
 
 header('Location: membres.php');

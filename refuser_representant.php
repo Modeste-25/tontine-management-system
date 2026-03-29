@@ -39,13 +39,20 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
     $mail->SMTPDebug  = 0;
+    $mail->SMTPOptions = [
+    'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    ]
+];
 
     $mail->setFrom('tchouheukmodeste@gmail.com', 'Afriton');
     $mail->addAddress($rep['email'], $rep['prenom'] . ' ' . $rep['nom']);
 
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
-    $mail->Subject = "❌ Demande de compte Afriton – Non retenue";
+    $mail->Subject = " Demande de compte Afriton – Non retenue";
     $mail->Body = "
         <div style='font-family:Arial,sans-serif;max-width:580px;margin:0 auto;'>
             <div style='background:linear-gradient(135deg,#dc2626,#ef4444);padding:32px;text-align:center;border-radius:12px 12px 0 0;'>
@@ -73,10 +80,11 @@ try {
     $mail->AltBody = "Bonjour " . $rep['prenom'] . " " . $rep['nom'] . ", votre demande de compte Afriton a été refusée. Contactez l'administrateur pour plus d'informations.";
     $mail->send();
 
-    $_SESSION['flash'] = ['type' => 'danger', 'msg' => "❌ Représentant refusé. Un email de notification lui a été envoyé."];
+    $_SESSION['flash'] = ['type' => 'danger', 'msg' => " Représentant refusé. Un email de notification lui a été envoyé."];
 } catch (Exception $e) {
-    $_SESSION['flash'] = ['type' => 'danger', 'msg' => "❌ Représentant refusé (email non envoyé : " . $mail->ErrorInfo . ")"];
+    $_SESSION['flash'] = ['type' => 'danger', 'msg' => " Représentant refusé (email non envoyé : " . $mail->ErrorInfo . ")"];
 }
 
 header('Location: dashboard.php?tab=validation');
 exit();
+?>

@@ -95,7 +95,7 @@ if ($action === 'edit' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $tontine_id, $user_id
         ]);
         log_action('Modification tontine', "Tontine $tontine_id modifiée");
-        $_SESSION['flash'] = ['type' => 'success', 'msg' => "✅ Tontine modifiée avec succès."];
+        $_SESSION['flash'] = ['type' => 'success', 'msg' => " Tontine modifiée avec succès."];
         header('Location: tontine.php');
         exit();
     }
@@ -154,7 +154,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
             overflow: hidden;
         }
         .form-top {
-            background: linear-gradient(135deg, var(--forest), #2d6a4f);
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
             padding: 36px 44px 32px; color: white;
         }
         .form-top .icon-wrap {
@@ -190,7 +190,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
         textarea.form-control { resize: vertical; min-height: 90px; }
 
         .btn-submit {
-            background: linear-gradient(135deg, var(--forest), #2d6a4f);
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
             color: white; border: none; border-radius: 11px;
             width: 100%; padding: 14px; font-size: 1rem;
             font-weight: 700; cursor: pointer;
@@ -298,7 +298,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
                         <div class="divider-label">Informations générales</div>
 
                         <div class="mb-3">
-                            <label class="form-label">Nom de la tontine <span style="color:#ef4444">*</span></label>
+                            <label class="form-label">Nom de la tontine <span style="color:#ef4444"></span></label>
                             <input type="text" class="form-control" name="nom" required
                                    placeholder="Ex : Tontine des femmes de Bonanjo"
                                    value="<?= htmlspecialchars($tontine_edit['nom'] ?? $_POST['nom'] ?? '') ?>">
@@ -320,10 +320,10 @@ if ($action === 'edit' && isset($_GET['id'])) {
 
                         <div class="row g-3 mb-3">
                             <div class="col-md-7">
-                                <label class="form-label">Montant de la cotisation (FCFA) <span style="color:#ef4444">*</span></label>
+                                <label class="form-label">Montant de la cotisation (FCFA) <span style="color:#ef4444"></span></label>
                                 <div class="input-group">
                                     <input type="number" class="form-control" name="montant_cotisation"
-                                           required min="100" step="100"
+                                           required min="1" step="1"
                                            placeholder="Ex : 10000"
                                            value="<?= htmlspecialchars($tontine_edit['montant_cotisation'] ?? $_POST['montant_cotisation'] ?? '') ?>">
                                     <span class="input-group-text" style="border-color:#e2e8f0;background:#f8fafc;font-size:.85rem;font-weight:600;">FCFA</span>
@@ -338,7 +338,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Fréquence de cotisation <span style="color:#ef4444">*</span></label>
+                            <label class="form-label">Fréquence de cotisation <span style="color:#38bdf8"></span></label>
                             <div class="freq-options">
                                 <?php
                                 $freqs = [
@@ -366,7 +366,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
 
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
-                                <label class="form-label">Date de début <span style="color:#ef4444">*</span></label>
+                                <label class="form-label">Date de début <span style="color:#ef4444"></span></label>
                                 <input type="date" class="form-control" name="date_debut" required
                                        value="<?= htmlspecialchars($tontine_edit['date_debut'] ?? $_POST['date_debut'] ?? date('Y-m-d')) ?>">
                             </div>
@@ -381,9 +381,9 @@ if ($action === 'edit' && isset($_GET['id'])) {
                         <div class="mb-4">
                             <label class="form-label">Statut</label>
                             <select name="statut" class="form-select">
-                                <option value="active"    <?= ($tontine_edit['statut'] ?? '') === 'active'    ? 'selected' : '' ?>>🟢 Active</option>
-                                <option value="inactive"  <?= ($tontine_edit['statut'] ?? '') === 'inactive'  ? 'selected' : '' ?>>⚪ Inactive</option>
-                                <option value="terminee"  <?= ($tontine_edit['statut'] ?? '') === 'terminee'  ? 'selected' : '' ?>>🏁 Terminée</option>
+                                <option value="active"    <?= ($tontine_edit['statut'] ?? '') === 'active'    ? 'selected' : '' ?>> Active</option>
+                                <option value="inactive"  <?= ($tontine_edit['statut'] ?? '') === 'inactive'  ? 'selected' : '' ?>> Inactive</option>
+                                <option value="terminee"  <?= ($tontine_edit['statut'] ?? '') === 'terminee'  ? 'selected' : '' ?>> Terminée</option>
                             </select>
                         </div>
                         <?php endif; ?>
@@ -415,7 +415,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
                 </div>
                 <a href="tontine.php?action=create"
                    style="display:inline-flex;align-items:center;gap:8px;
-                          background:linear-gradient(135deg,#18392b,#2d6a4f);
+                          background:linear-gradient(135deg,#0ea5e9,#0284c7);
                           color:white;border-radius:11px;padding:11px 22px;
                           font-weight:700;font-size:.9rem;text-decoration:none;
                           box-shadow:0 4px 18px rgba(24,57,43,.28);transition:all .2s;">
@@ -435,7 +435,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
                     </p>
                     <a href="tontine.php?action=create"
                        style="display:inline-flex;align-items:center;gap:8px;
-                              background:linear-gradient(135deg,#18392b,#2d6a4f);
+                              background:linear-gradient(135deg,#0ea5e9,#0284c7);
                               color:white;border-radius:11px;padding:12px 28px;
                               font-weight:700;text-decoration:none;">
                         <i class="bi bi-plus-circle-fill"></i> Créer ma première tontine
@@ -457,9 +457,9 @@ if ($action === 'edit' && isset($_GET['id'])) {
                 default    => 'badge-terminee'
             };
             $badge_lbl = match($t['statut']) {
-                'active'   => 'Active',
-                'inactive' => 'Inactive',
-                default    => 'Terminée'
+                'active'   =>  ' Active',
+                'inactive' => ' Inactive',
+                default    => ' Terminée'
             };
             ?>
             <div class="t-card <?= $css_class ?>">
@@ -475,7 +475,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
                     </div>
                     <?php if ($t['description']): ?>
                     <div style="font-size:.8rem;color:#94a3b8;margin-top:5px;max-width:380px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-                        <?= htmlspecialchars_decode(htmlspecialchars(mb_substr($t['description'], 0, 82))) ?>…
+                        <?= htmlspecialchars($t['description']) ?>
                     </div>
                     <?php endif; ?>
                 </div>
@@ -513,7 +513,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
                     <a href="tontine.php?action=edit&id=<?= $t['id'] ?>"
                        style="display:inline-flex;align-items:center;gap:5px;
                               padding:7px 14px;border-radius:8px;
-                              background:linear-gradient(135deg,#18392b,#2d6a4f);
+                              background:linear-gradient(135deg,#0ea5e9,#0284c7);
                               color:white;font-size:.8rem;font-weight:600;
                               text-decoration:none;transition:all .2s;">
                         <i class="bi bi-pencil"></i> Modifier

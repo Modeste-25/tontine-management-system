@@ -10,7 +10,7 @@ $stmt = $pdo->prepare("SELECT * FROM tontines WHERE representant_id = ? AND stat
 $stmt->execute([$user['id']]);
 $tontine = $stmt->fetch();
 
- $current_page = basename($_SERVER['PHP_SELF']);
+$current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
 <div class="sidebar">
@@ -32,7 +32,7 @@ $tontine = $stmt->fetch();
                 </a>
             </li>
             <li>
-                <a href="<?php echo $tontine ? 'membres_tontines.php?id='.$tontine['id'] : '#'; ?>" 
+                <a href="<?php echo $tontine ? 'membres_tontines.php?id='.$tontine['id'] : '#'; ?>"
                    class="<?php echo $current_page == 'membres_tontines.php' ? 'active' : ''; ?>"
                    <?php echo !$tontine ? 'style="pointer-events:none; color: gray;"' : ''; ?>>
                     <i class="bi bi-people"></i> Membres Tontines
@@ -43,6 +43,14 @@ $tontine = $stmt->fetch();
                     <i class="bi bi-wallet"></i> Cotisations
                 </a>
             </li>
+
+            <!-- PAIEMENTS MOBILE MONEY -->
+            <li>
+                <a href="paiement.php" class="<?php echo $current_page == 'paiement.php' ? 'active' : ''; ?>">
+                    <i class="bi bi-phone"></i> Paiements Mobile
+                </a>
+            </li>
+
             <li>
                 <a href="prets.php" class="<?php echo $current_page == 'prets.php' ? 'active' : ''; ?>">
                     <i class="bi bi-bank"></i> Prêts

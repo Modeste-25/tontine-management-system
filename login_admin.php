@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'admin') {
-    header('Location: dashboard ');
+    header('Location: dashboard.php ');
     exit;
 }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_type'] = $user['type_utilisateur'];
         $_SESSION['user_name'] = $user['prenom'] . ' ' . $user['nom'];
 
-        header('Location: dashboard');
+        header('Location: dashboard.php');
         exit;
     } else {
         $error = "Email ou mot de passe incorrect ou accès refusé.";

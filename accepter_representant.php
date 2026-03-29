@@ -39,6 +39,13 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
     $mail->SMTPDebug  = 0;
+    $mail->SMTPOptions = [
+    'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    ]
+];
 
     $mail->setFrom('tchouheukmodeste@gmail.com', 'Afriton');
     $mail->addAddress($rep['email'], $rep['prenom'] . ' ' . $rep['nom']);

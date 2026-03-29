@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">Authentification à deux facteurs (2FA)</h2>
+                            <h2 class="card-title">Authentification à deux facteurs</h2>
                         </div>
                         <form method="POST">
                             <p>Activez la double authentification pour renforcer la sécurité de votre compte.</p>

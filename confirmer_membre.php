@@ -75,7 +75,7 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
         $prenom  = $membre['prenom'];
         $code    = $membre['code_membre'];
         $tontine = $membre['tontine_nom'];
-        $tel     = $membre['telephone']; // format international ex: +237612345678
+        $tel     = $membre['telephone']; // format international 
 
         $sms = "Bonjour $prenom,\n\nVotre adhésion à la tontine « $tontine » est confirmée !\n\nVotre code membre : $code\n\nConservez-le, il est nécessaire pour vous connecter sur Afriton.";
 
